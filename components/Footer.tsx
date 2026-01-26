@@ -12,7 +12,7 @@ export default function Footer() {
           <h2 className="font-bold mb-2">Links</h2>
           <ul>
             <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/reviews">Reviews</Link></li>
+            <li><Link href="/about">About Us</Link></li>
             <li><Link href="/orders">Orders</Link></li>
           </ul>
         </div>
