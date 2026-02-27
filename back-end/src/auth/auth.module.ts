@@ -19,7 +19,7 @@ import { JwtStrategyService } from './jwt.strategy.service';
         return {
           secret: config.get<string>('JWT_SECRET'),
           signOptions: {
-            expiresIn: config.get<any>('JWT_EXPIRES_IN'),
+            expiresIn: config.get<string>('JWT_EXPIRES_IN') as any,
           },
         };
       },
@@ -38,4 +38,4 @@ import { JwtStrategyService } from './jwt.strategy.service';
 
   controllers: [AuthController],
 })
-export class AuthModule { }
+export class AuthModule {}

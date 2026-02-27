@@ -7,7 +7,7 @@ import { User, UserDocument } from './schema/user.schema';
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-  create(userData) {
+  create(userData: Partial<User>) {
     return this.userModel.create(userData);
   }
 

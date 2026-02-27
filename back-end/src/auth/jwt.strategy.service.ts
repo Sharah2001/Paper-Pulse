@@ -8,27 +8,26 @@ import { User, UserDocument } from '../users/schema/user.schema';
 
 @Injectable()
 export class JwtStrategyService extends PassportStrategy(Strategy) {
-    constructor(
-        @InjectModel(User.name)
-        private userModel: Model<UserDocument>,
-        private configService: ConfigService,
-    ) {
-        super({
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            secretOrKey: configService.get<string>('JWT_SECRET')!,
-        });
+  constructor(
+    @InjectModel(User.name)
+    private userModel: Model<UserDocument>,
+    private configService: ConfigService,
+  ) {
+    super({
+      jwtFromRequest: (ExtractJwt as any).fromAuthHeaderAsBearerToken(),
+      secretOrKey: configService.get<string>('JWT_SECRET')!,
+    });
+  }
+
+  async validate(payload: any) {
+    const { id } = payload;
+
+    const user = await this.userModel.findById(id);
+
+    if (!user) {
+      throw new UnauthorizedException('Login first to access this endpoint.');
     }
 
-    async validate(payload: any) {
-        const { id } = payload;
-
-        const user = await this.userModel.findById(id);
-
-        if (!user) {
-            throw new UnauthorizedException('Login first to access this endpoint.');
-        }
-
-        return user;
-    }
+    return user;
+  }
 }
-

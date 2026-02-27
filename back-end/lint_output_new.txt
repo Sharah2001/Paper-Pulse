@@ -1,0 +1,168 @@
+﻿
+> back-end@0.0.1 lint
+> eslint "{src,apps,libs,test}/**/*.ts" --fix
+
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\accessories\accessories.controller.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:24  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\accessories\accessories.service.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\app.controller.spec.ts
+   5:1   error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+   8:3   error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+  14:5   error    Unsafe assignment of an error typed value                                                                               @typescript-eslint/no-unsafe-assignment
+  14:44  warning  Unsafe argument of type error typed assigned to a parameter of type `string | symbol | Function | Type<AppController>`  @typescript-eslint/no-unsafe-argument
+  17:3   error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+  18:5   error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+  19:7   error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+  19:7   error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+  19:14  error    Unsafe call of a type that could not be resolved                                                                        @typescript-eslint/no-unsafe-call
+  19:28  error    Unsafe member access .getHello on a type that cannot be resolved                                                        @typescript-eslint/no-unsafe-member-access
+  19:40  error    Unsafe member access .toBe on a type that cannot be resolved                                                            @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\auth\auth.controller.spec.ts
+   5:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   8:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  22:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:24  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\auth\auth.service.spec.ts
+   7:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  10:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  28:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  29:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  29:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  29:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\auth\guards\jwt-auth\jwt-auth.guard.spec.ts
+  3:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  4:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  5:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  5:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  5:32  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\auth\jwt.strategy.service.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\auth\jwt.strategy.service.ts
+  16:5   error  Unsafe call of a type that could not be resolved                                     @typescript-eslint/no-unsafe-call
+  17:7   error  Unsafe assignment of an error typed value                                            @typescript-eslint/no-unsafe-assignment
+  17:23  error  Unsafe call of a type that could not be resolved                                     @typescript-eslint/no-unsafe-call
+  17:34  error  Unsafe member access .fromAuthHeaderAsBearerToken on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+  23:11  error  Unsafe assignment of an `any` value                                                  @typescript-eslint/no-unsafe-assignment
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\books\books.controller.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:24  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\books\books.service.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\orders\orders.controller.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:24  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\orders\orders.controller.ts
+  14:7   warning  Unsafe argument of type `any` assigned to a parameter of type `string`  @typescript-eslint/no-unsafe-argument
+  14:11  error    Unsafe member access .user on an `any` value                            @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\orders\orders.service.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\payments\payments.controller.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:24  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\payments\payments.service.spec.ts
+   4:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   7:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  15:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  16:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\payments\payments.service.ts
+  13:9   error  Unsafe assignment of an `any` value  @typescript-eslint/no-unsafe-assignment
+  18:31  error  'eventId' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\seed-accessories.ts
+  66:1  warning  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\seed-books.ts
+  305:1  warning  Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator  @typescript-eslint/no-floating-promises
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\users\users.controller.spec.ts
+   5:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   8:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  22:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:24  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\users\users.service.spec.ts
+   6:1   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+   9:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  23:3   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  24:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  24:5   error  Unsafe call of a type that could not be resolved                     @typescript-eslint/no-unsafe-call
+  24:21  error  Unsafe member access .toBeDefined on a type that cannot be resolved  @typescript-eslint/no-unsafe-member-access
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\src\users\users.service.ts
+  11:34  warning  Unsafe argument of type `any` assigned to a parameter of type `Partial<UserDocument>`  @typescript-eslint/no-unsafe-argument
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\test\app.e2e-spec.ts
+   7:1  error  Unsafe call of a type that could not be resolved  @typescript-eslint/no-unsafe-call
+  10:3  error  Unsafe call of a type that could not be resolved  @typescript-eslint/no-unsafe-call
+  19:3  error  Unsafe call of a type that could not be resolved  @typescript-eslint/no-unsafe-call
+
+C:\Users\Pira\Desktop\paper-pulse\paper-pulse\back-end\test\hello-world.spec.ts
+  1:7   error  Unsafe assignment of an `any` value           @typescript-eslint/no-unsafe-assignment
+  1:26  error  A `require()` style import is forbidden       @typescript-eslint/no-require-imports
+  3:1   error  Unsafe call of an `any` typed value           @typescript-eslint/no-unsafe-call
+  4:3   error  Unsafe call of an `any` typed value           @typescript-eslint/no-unsafe-call
+  4:3   error  Unsafe call of an `any` typed value           @typescript-eslint/no-unsafe-call
+  4:27  error  Unsafe member access .toBe on an `any` value  @typescript-eslint/no-unsafe-member-access
+
+Γ£û 115 problems (110 errors, 5 warnings)
+

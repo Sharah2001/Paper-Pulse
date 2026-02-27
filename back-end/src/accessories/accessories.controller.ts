@@ -5,7 +5,7 @@ import { Public } from '../auth/decorators/public.decorator';
 
 @Controller('accessories')
 export class AccessoriesController {
-  constructor(private readonly accessoriesService: AccessoriesService) { }
+  constructor(private readonly accessoriesService: AccessoriesService) {}
 
   @Post()
   create(@Body() dto: CreateAccessoryDto) {

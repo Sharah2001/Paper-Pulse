@@ -1,14 +1,48 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
-import { FiTrash2 } from "react-icons/fi";
+import { FiTrash2, FiPlus, FiMinus } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, updateQuantity } = useCart();
+  const router = useRouter();
 
-  const subtotal = cart.reduce((acc, item) => acc + item.price, 0);
+  const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const shipping = 250;
   const total = subtotal + shipping;
+
+  const handleCODCheckout = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      router.push("/register");
+      return;
+    }
+    try {
+      const res = await fetch("http://localhost:3000/orders/cod", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          items: cart.map((item) => ({
+            bookId: item._id,
+            price: item.price,
+            quantity: item.quantity,
+          })),
+          shipping: 250,
+        }),
+      });
+      const data = await res.json();
+      localStorage.removeItem("cart");
+      router.push(`/receipt?orderId=${data._id}&method=cod&status=pending`);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to place order. Please try again.");
+    }
+  };
 
   if (cart.length === 0) {
     return (
@@ -20,7 +54,7 @@ export default function CartPage() {
           <h2 className="text-2xl font-bold text-slate-900">Your cart is empty</h2>
           <p className="text-slate-500 mt-2">Looks like you haven't added anything yet.</p>
         </div>
-        <button className="btn-primary" onClick={() => window.location.href = '/'}>
+        <button className="btn-primary" onClick={() => (window.location.href = "/")}>
           Start Shopping
         </button>
       </div>
@@ -61,6 +95,27 @@ export default function CartPage() {
                     In Stock
                   </span>
                 </div>
+
+                <div className="mt-6 flex items-center justify-center sm:justify-start gap-4">
+                  <div className="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => updateQuantity(item._id, item.quantity - 1)}
+                      className="p-2 hover:bg-slate-100 transition-colors border-r border-slate-200"
+                      disabled={item.quantity <= 1}
+                    >
+                      <FiMinus className="text-sm" />
+                    </button>
+                    <span className="px-4 py-1.5 font-bold text-slate-900 bg-white min-w-[3rem] text-center">
+                      {item.quantity}
+                    </span>
+                    <button
+                      onClick={() => updateQuantity(item._id, item.quantity + 1)}
+                      className="p-2 hover:bg-slate-100 transition-colors border-l border-slate-200"
+                    >
+                      <FiPlus className="text-sm" />
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <button
@@ -89,12 +144,17 @@ export default function CartPage() {
               </div>
               <div className="pt-4 border-t border-slate-800 flex justify-between">
                 <span className="text-lg font-bold">Total</span>
-                <span className="text-2xl font-bold text-indigo-400">Rs. {total.toLocaleString()}</span>
+                <span className="text-2xl font-bold text-indigo-400">
+                  Rs. {total.toLocaleString()}
+                </span>
               </div>
             </div>
 
-            <button className="w-full btn-primary !bg-indigo-500 hover:!bg-indigo-400 py-4 shadow-xl shadow-indigo-500/10">
-              Proceed to Checkout
+            <button
+              onClick={handleCODCheckout}
+              className="w-full btn-primary !bg-indigo-500 hover:!bg-indigo-400 py-4 shadow-xl shadow-indigo-500/10"
+            >
+              Place Order (COD)
             </button>
 
             <p className="text-xs text-center text-slate-500 mt-6">
@@ -106,3 +166,5 @@ export default function CartPage() {
     </div>
   );
 }
+
+

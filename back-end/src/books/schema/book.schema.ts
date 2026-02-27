@@ -26,6 +26,12 @@ export class Book extends Document {
 
   @Prop({ default: false })
   isBestSeller!: boolean;
+
+  @Prop({ default: 'COD' })
+  paymentMethod!: string;
+
+  @Prop({ default: 'Pending' })
+  status!: string;
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);

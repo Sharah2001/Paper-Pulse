@@ -1,4 +1,8 @@
-import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from '../users/schema/user.schema';
@@ -13,7 +17,7 @@ export class AuthService {
     @InjectModel(User.name)
     private userModel: Model<UserDocument>,
     private jwtService: JwtService,
-  ) { }
+  ) {}
 
   async signUp(signUpDto: SignUpDto): Promise<{ access_token: string }> {
     const { name, password } = signUpDto;
@@ -29,14 +33,19 @@ export class AuthService {
       });
 
       const token = this.jwtService.sign({
-        id: (user as UserDocument)._id,
-        email: (user as UserDocument).email,
-        role: (user as UserDocument).role,
+        id: user._id,
+        email: user.email,
+        role: user.role,
       });
 
       return { access_token: token };
-    } catch (error: any) {
-      if (error.code === 11000 || (error.keyValue && error.keyValue.email)) {
+    } catch (error: unknown) {
+      if (
+        error &&
+        typeof error === 'object' &&
+        'code' in error &&
+        error.code === 11000
+      ) {
         throw new ConflictException('Duplicate email entered!');
       }
       throw error;
@@ -55,10 +64,7 @@ export class AuthService {
       .exec();
     if (!user) throw new UnauthorizedException('Invalid credentials!');
 
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      (user as UserDocument).password,
-    );
+    const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid)
       throw new UnauthorizedException('Invalid credentials!');
 

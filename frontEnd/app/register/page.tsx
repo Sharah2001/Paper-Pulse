@@ -1,76 +1,71 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { RegisterForm } from "@/app/types";
-import { api } from "@/utils/api";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
-export default function RegisterPage(): React.ReactElement {
+export default function RegisterPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect") || "/";
 
-  const [error, setError] = useState("");
-  const [form, setForm] = useState<RegisterForm>({
+  const [form, setForm] = useState({
     fullName: "",
     email: "",
     phone: "",
-    occupation: "",
-    interestReason: "",
-    password: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const submit = async () => {
-    setError("");
-    try {
-      const data = await api.register(form);
-      localStorage.setItem("token", data.token);
-      router.push(redirect);
-    } catch (err: any) {
-      console.error(err);
-      setError(err.response?.data?.message || "Something went wrong during registration");
-    }
-  };
+    // Save user info locally
+    localStorage.setItem("user", JSON.stringify(form));
 
-  const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect") || "/community";
+    router.push(redirect);
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-amber-50">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-2">Join the Community</h2>
+    <div className="min-h-screen flex items-center justify-center bg-slate-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md"
+      >
+        <h1 className="text-2xl font-bold mb-6">Your Details</h1>
 
-        <p className="text-sm text-gray-500 mb-4">
-          Create an account to join the community.
-        </p>
+        <input
+          placeholder="Full Name"
+          required
+          className="input"
+          value={form.fullName}
+          onChange={(e) =>
+            setForm({ ...form, fullName: e.target.value })
+          }
+        />
 
-        {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-xl text-sm font-medium mb-4 animate-in fade-in slide-in-from-top-2">
-            {error}
-          </div>
-        )}
+        <input
+          placeholder="Email"
+          type="email"
+          required
+          className="input mt-4"
+          value={form.email}
+          onChange={(e) =>
+            setForm({ ...form, email: e.target.value })
+          }
+        />
 
-        <div className="space-y-3">
-          <input className="input" name="fullName" placeholder="Full Name" onChange={handleChange} />
-          <input className="input" name="email" placeholder="Email" onChange={handleChange} />
-          <input className="input" name="phone" placeholder="Phone" onChange={handleChange} />
-          <input className="input" name="occupation" placeholder="Occupation" onChange={handleChange} />
-          <textarea className="input" name="interestReason" placeholder="Why interested? (optional)" onChange={handleChange} />
-          <input className="input" type="password" name="password" placeholder="Password" onChange={handleChange} />
-        </div>
+        <input
+          placeholder="Phone Number"
+          required
+          className="input mt-4"
+          value={form.phone}
+          onChange={(e) =>
+            setForm({ ...form, phone: e.target.value })
+          }
+        />
 
-        <button
-          onClick={submit}
-          className="w-full mt-5 bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700"
-        >
-          Register & Join
+        <button className="btn-primary w-full mt-6">
+          Continue
         </button>
-      </div>
+      </form>
     </div>
   );
 }

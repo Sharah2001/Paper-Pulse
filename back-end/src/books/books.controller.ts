@@ -15,7 +15,7 @@ import { Public } from '../auth/decorators/public.decorator';
 
 @Controller('books')
 export class BooksController {
-  constructor(private booksService: BooksService) { }
+  constructor(private booksService: BooksService) {}
 
   // CREATE
   @Post()

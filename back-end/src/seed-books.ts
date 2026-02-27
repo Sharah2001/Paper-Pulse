@@ -302,4 +302,6 @@ async function bootstrap() {
   await app.close();
 }
 
-bootstrap();
+bootstrap().catch((err) => {
+  console.error('Error seeding books:', err);
+});

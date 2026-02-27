@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 
 import BookCard from "@/components/BookCard";
-import type { Book } from "@/data/book"; 
+import type { Book } from "@/data/book";
 
 const categories = ["Novel", "Fiction", "Self-help", "Biography"];
 
@@ -16,7 +16,7 @@ export default function CategoryPage() {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:3001/books/category/${selectedCategory.toLowerCase()}`
+      `http://127.0.0.1:3001/books/category/${selectedCategory.toLowerCase()}`
     )
       .then((res) => res.json())
       .then((data) => {
